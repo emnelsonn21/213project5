@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="orderDeluxeBtn" type="id"/>
+    <item name="orderHawaiianBtn" type="id"/>
+    <item name="orderPepperoniBtn" type="id"/>
+    <item name="viewStoreOrdersBtn" type="id"/>
+    <item name="reviewOrderBtn" type="id"/>
+</resources>
