@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageView orderPepperoniBtn;
     private ImageView reviewOrderBtn;
     private ImageView viewStoreOrdersBtn;
-    private Button button;
     private Pizza pizza;
     private Order order;
     private StoreOrders storeOrders;
@@ -54,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
         orderPepperoniBtn = (ImageView) findViewById(R.id.orderPepperoniBtn);
         reviewOrderBtn = (ImageView) findViewById(R.id.reviewOrderBtn);
         viewStoreOrdersBtn = (ImageView) findViewById(R.id.viewStoreOrdersBtn);
-        button = (Button) findViewById(R.id.button);
 
         order = new Order();
         Pizza[] newOrders = new Pizza[10];
