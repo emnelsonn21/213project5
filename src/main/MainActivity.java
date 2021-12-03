@@ -82,14 +82,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.println("test!!");
-                System.out.println(order.getPizzas());
-            }
-        });
-
         reviewOrderBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
