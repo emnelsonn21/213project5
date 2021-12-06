@@ -115,11 +115,12 @@ public class CustomizeDeluxeActivity extends AppCompatActivity implements Adapte
                 String newTopping = parent.getItemAtPosition(position).toString();
                 if (thePizza.toppings.size() == 7) {
                     Toast.makeText(getApplicationContext(),"No more than 7 toppings",Toast.LENGTH_SHORT).show();
+                } else if (newTopping.equals("")) {
+
                 }
-                else if (thePizza.toppings.contains(newTopping) || newTopping.equals("")) {
+                else if (thePizza.toppings.contains(newTopping)) {
                     Toast.makeText(getApplicationContext(),"Topping already selected",Toast.LENGTH_SHORT).show();
                 } else {
-                    // toppings.add(newTopping);
                     adapterListView.notifyDataSetChanged();
                     thePizza.toppings.add(newTopping);
                     totalPrice.setText("Total price: $" + String.valueOf(thePizza.price()));
