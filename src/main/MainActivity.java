@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
     ActivityResultLauncher<Intent> activityLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
+                /**
+                Receives a pizza as a result
+                @param result Activity Result
+                @author Emily Nelson
+                */
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == 78) {
@@ -53,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
     ActivityResultLauncher<Intent> activityLauncher2 = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
+                /**
+                Receives a phone number as a result
+                @param result Activity Result
+                @author Emily Nelson
+                */
                 @Override
                 public void onActivityResult(ActivityResult result) {
                     if (result.getResultCode() == 69) {
@@ -150,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewStoreOrdersBtn.setOnClickListener(new View.OnClickListener() {
             /**
-             Calls for the launch of Review Order Activity when reviewOrderBtn view has been clicked
+             Calls for the launch of View Store Orders Activity when viewStoreOrdersBtn view has been clicked
              @param v View
              @author Emily Nelson
              */
@@ -206,7 +216,11 @@ public class MainActivity extends AppCompatActivity {
             activityLauncher2.launch(intent);
         }
     }
-
+    
+    /**
+    Launches View Store Orders Activity
+    @author Emily Nelson
+    */
     public void openViewStoreOrdersActivity(){
         if (storeOrders.getSize() == 0) {
             Toast.makeText(getApplicationContext(),"No orders to view",Toast.LENGTH_SHORT).show();
