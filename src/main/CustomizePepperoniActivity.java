@@ -15,6 +15,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+This class contains the methods that organize the Customize Pepperoni Activity user inputs
+@author Emily Nelson, Cristofer Gomez-Martinez
+*/
 public class CustomizePepperoniActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Pizza thePizza;
@@ -29,7 +33,12 @@ public class CustomizePepperoniActivity extends AppCompatActivity implements Ada
     ArrayAdapter adapterListView;
     private TextView totalPrice;
 
-
+    /**
+    Initializes the data needed for a pepperoni pizza
+    Defines the layout for CustomizeDeluxeActivity's user interface
+    @param savedInstanceState Bundle
+    @author Emily Nelson
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +84,14 @@ public class CustomizePepperoniActivity extends AppCompatActivity implements Ada
         selectedToppings.setAdapter(adapterListView);
 
         selectedToppings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            /**
+            Removes topping when item in this AdapterView has been clicked
+            @param adapterView AdapterView<?>
+            @param view View
+            @param i int
+            @param l long
+            @author Emily Nelson
+            */
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -87,6 +104,11 @@ public class CustomizePepperoniActivity extends AppCompatActivity implements Ada
             }
         });
         addToOrderBtn.setOnClickListener(new View.OnClickListener() {
+            /**
+            Calls for the pizza to be added to order when addToOrderBtn view has been clicked
+            @param v View
+            @author Emily Nelson
+            */
             @Override
             public void onClick(View v) {
                 addToOrder();
@@ -94,7 +116,10 @@ public class CustomizePepperoniActivity extends AppCompatActivity implements Ada
         });
     }
 
-
+    /**
+    Adds pizza to order
+    @author Emily Nelson
+    */
     public void addToOrder() {
         Intent resultIntent = new Intent();
         resultIntent.putExtra("pizzaAdded", thePizza);
@@ -102,7 +127,14 @@ public class CustomizePepperoniActivity extends AppCompatActivity implements Ada
         finish();
     }
 
-
+    /**
+    Adds new topping selected or change size of pizza 
+    @param parent AdapterView<?>
+    @param view View
+    @param position int
+    @param id long
+    @author Emily Nelson
+    */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getId()) {
@@ -138,7 +170,12 @@ public class CustomizePepperoniActivity extends AppCompatActivity implements Ada
             }
         }
     }
-
+    
+    /**
+    Does nothing when nothing is selected
+    @param parent AdapterView<?>
+    @author Emily Nelson
+    */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
