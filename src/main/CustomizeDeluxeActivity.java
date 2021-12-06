@@ -15,6 +15,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+This class contains the methods that organize the Customize Deluxe Activity user inputs
+@author Emily Nelson, Cristofer Gomez-Martinez
+*/
 public class CustomizeDeluxeActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private Pizza thePizza;
@@ -29,7 +33,12 @@ public class CustomizeDeluxeActivity extends AppCompatActivity implements Adapte
     private TextView totalPrice;
     private ArrayList<String> unselectedToppings = new ArrayList<>();
 
-
+    /**
+    Initializes the data needed for a deluxe pizza
+    Defines the layout for CustomizeDeluxeActivity's user interface
+    @param savedInstanceState Bundle
+    @author Emily Nelson
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +87,14 @@ public class CustomizeDeluxeActivity extends AppCompatActivity implements Adapte
         selectedToppings.setAdapter(adapterListView);
 
         selectedToppings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            /**
+            Removes topping when item in this AdapterView has been clicked
+            @param adapterView AdapterView<?>
+            @param view View
+            @param i int
+            @param l long
+            @author Emily Nelson
+            */
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -92,6 +109,11 @@ public class CustomizeDeluxeActivity extends AppCompatActivity implements Adapte
 
 
         addToOrderBtn.setOnClickListener(new View.OnClickListener() {
+            /**
+            Calls for the pizza to be added to order when addToOrderBtn view has been clicked
+            @param v View
+            @author Emily Nelson
+            */
             @Override
             public void onClick(View v) {
                 addToOrder();
@@ -99,7 +121,10 @@ public class CustomizeDeluxeActivity extends AppCompatActivity implements Adapte
         });
     }
 
-
+    /**
+    Adds pizza to order
+    @author Emily Nelson
+    */
     public void addToOrder() {
         Intent resultIntent = new Intent();
         resultIntent.putExtra("pizzaAdded", thePizza);
@@ -107,7 +132,14 @@ public class CustomizeDeluxeActivity extends AppCompatActivity implements Adapte
         finish();
     }
 
-
+    /**
+    Adds new topping selected or change size of pizza 
+    @param parent AdapterView<?>
+    @param view View
+    @param position int
+    @param id long
+    @author Emily Nelson
+    */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getId()) {
@@ -142,7 +174,12 @@ public class CustomizeDeluxeActivity extends AppCompatActivity implements Adapte
             }
         }
     }
-
+    
+    /**
+    Does nothing when nothing is selected
+    @param param AdapterView<?>
+    @author Emily Nelson
+    */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
