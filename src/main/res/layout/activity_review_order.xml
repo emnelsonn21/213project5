@@ -28,14 +28,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="370dp"/>
+        android:layout_marginTop="400dp"/>
 
     <TextView
         android:id="@+id/tax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="430dp"
         android:layout_marginEnd="125dp"
         android:layout_marginBottom="29dp"
         android:text="Tax: $" />
@@ -45,10 +45,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="460dp"
         android:layout_marginEnd="125dp"
         android:layout_marginBottom="29dp"
         android:text="Total price: $" />
+
+    <EditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="210dp"
+        android:layout_marginTop="485dp"
+        android:layout_marginBottom="29dp"
+        android:hint="Input phone number"/>
+
+    <Button
+        android:id="@+id/placeOrderBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="530dp"
+        android:layout_marginBottom="10dp"
+        android:text="Place Order and Start new one"/>
 
 
 </RelativeLayout>
