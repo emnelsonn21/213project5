@@ -15,6 +15,10 @@ import android.widget.Toast;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+This class contains the methods that organize the View Store Orders Activity user inputs
+@author Emily Nelson, Cristofer Gomez-Martinez
+*/
 public class ViewStoreOrdersActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private StoreOrders storeOrders;
@@ -29,6 +33,12 @@ public class ViewStoreOrdersActivity extends AppCompatActivity implements Adapte
     private Order[] allOrders;
     private static final double TAX_PERCENT = 0.06625;
 
+    /**
+    Initializes the data needed to view store orders
+    Defines the layout for ViewStoreOrders' user interface
+    @param savedInstanceState Bundle
+    @author Emily Nelson
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +63,11 @@ public class ViewStoreOrdersActivity extends AppCompatActivity implements Adapte
         listOrders.setAdapter(adapterListView);
 
         exitBtn.setOnClickListener(new View.OnClickListener() {
+            /**
+            Finishes the activity when exitBtn view has been clicked
+            @param v View
+            @author Emily Nelson
+            */
             @Override
             public void onClick(View v) {
                 finish();
@@ -60,7 +75,15 @@ public class ViewStoreOrdersActivity extends AppCompatActivity implements Adapte
         });
 
     }
-
+    
+    /**
+    Adds new pizza to order when item is selected
+    @param parent AdapterView<?>
+    @param view View
+    @param position int
+    @param id long
+    @author Emily Nelson
+    */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String phoneNum = phoneNumbers.getSelectedItem().toString();
@@ -83,7 +106,12 @@ public class ViewStoreOrdersActivity extends AppCompatActivity implements Adapte
         totalPriceTxt.setText("Total price: $" + df.format(totalPrice));
 
     }
-
+    
+    /**
+    Does nothing when nothing is selected
+    @param parent AdapterView<?>
+    @author Emily Nelson
+    */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
