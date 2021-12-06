@@ -59,8 +59,10 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = result.getData();
 
                         if (intent != null) {
+                            String phoneNum = intent.getStringExtra("phoneNumber");
+                            order.setOrderNumber(phoneNum);
                             storeOrders.addToOrders(order);
-                            usedPhoneNumbers.add(intent.getStringExtra("phoneNumber"));
+                            usedPhoneNumbers.add(phoneNum);
 
                             order = new Order();
                             Pizza[] newOrders = new Pizza[10];
@@ -76,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     /**
-     Initialiazes the data needed to keep track of the pizza orders
-     Defines the layout for MainActivty's user interface
+     Initializes the data needed to keep track of the pizza orders
+     Defines the layout for MainActivity's user interface
      @param savedInstanceState Bundle
      @author Emily Nelson
      */
@@ -147,10 +149,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         viewStoreOrdersBtn.setOnClickListener(new View.OnClickListener() {
+            /**
+             Calls for the launch of Review Order Activity when reviewOrderBtn view has been clicked
+             @param v View
+             @author Emily Nelson
+             */
             @Override
             public void onClick(View v) {
-                //add order to store orders here??? or??? no wait add order to store orders after confirming
-                //order in review order??
+                openViewStoreOrdersActivity();
             }
         });
     }
@@ -198,6 +204,17 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("order", order);
             intent.putExtra("usedPhoneNumbers", usedPhoneNumbers);
             activityLauncher2.launch(intent);
+        }
+    }
+
+    public void openViewStoreOrdersActivity(){
+        if (storeOrders.getSize() == 0) {
+            Toast.makeText(getApplicationContext(),"No orders to view",Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent(MainActivity.this, ViewStoreOrdersActivity.class);
+            intent.putExtra("usedPhoneNumbers", usedPhoneNumbers);
+            intent.putExtra("storeOrders", storeOrders);
+            activityLauncher.launch(intent);
         }
     }
 
