@@ -16,6 +16,10 @@ import android.widget.Toast;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+This class contains the methods that organize the Review Order Activity user inputs
+@author Emily Nelson, Cristofer Gomez-Martinez
+*/
 public class ReviewOrderActivity extends AppCompatActivity {
 
     private Order order;
@@ -30,6 +34,12 @@ public class ReviewOrderActivity extends AppCompatActivity {
     private ArrayList<String> usedPhoneNumbers = new ArrayList<>();
     private static final double TAX_PERCENT = 0.06625;
 
+    /**
+    Initializes the data needed to review an order
+    Defines the layout for ReviewOrderActivity's user interface
+    @param savedInstanceState Bundle
+    @author Emily Nelson
+    */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +67,14 @@ public class ReviewOrderActivity extends AppCompatActivity {
         pizzasInOrder.setAdapter(adapterListView);
 
         pizzasInOrder.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            /**
+            Removes pizza when item in this AdapterView has been clicked
+            @param adapterView AdapterView<?>
+            @param view View
+            @param i int
+            @param l long
+            @author Emily Nelson
+            */
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -71,6 +89,11 @@ public class ReviewOrderActivity extends AppCompatActivity {
         });
 
         placeOrderBtn.setOnClickListener(new View.OnClickListener() {
+            /**
+            Saves phone number used when placeOrderBtn view has been clicked
+            @param v View
+            @author Emily Nelson
+            */
             @Override
             public void onClick(View v) {
                 if(phoneNumber.getText().toString().trim().length() == 0) {
@@ -92,7 +115,10 @@ public class ReviewOrderActivity extends AppCompatActivity {
 
     }
 
-
+    /**
+    Sets subtotal and total price of pizza order
+    @author Emily Nelson
+    */
     public void getSubtotal() {
         double sub = 0;
 
@@ -108,7 +134,13 @@ public class ReviewOrderActivity extends AppCompatActivity {
         tax.setText("Tax: $" + tax_amt);
         totalPrice.setText("Total price: $" + total_amt);
     }
-
+    
+    /**
+    Checks if phone number is valid
+    @param phone phone number to check
+    @return returns true if number is valid, false otherwise
+    @author Emily Nelson
+    */
     private boolean isValidTelephoneNumber(String phone) {
         if (phone.length() != 10) {
             return false;
